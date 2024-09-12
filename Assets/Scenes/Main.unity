@@ -1802,6 +1802,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3213378042423405771, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
+    - target: {fileID: 3525597091018905104, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
     - target: {fileID: 4150404204329548307, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
       propertyPath: m_Name
       value: Battleground
@@ -1814,6 +1822,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4861322362705137819, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
     - target: {fileID: 5004364901090396384, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1854,14 +1866,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5634174115835097263, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
+    - target: {fileID: 7327752734168369712, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
+    - target: {fileID: 7751767899950995349, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
     - target: {fileID: 7887360177372387858, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8361242786874067053, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
     - target: {fileID: 8363990628338871590, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8841917234164698418, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96c2692c7776a7744bf46d56bd0f81e4, type: 2}
     - target: {fileID: 9000367496922284013, guid: f47497aa7f223f8438e06ab27d2e9560, type: 3}
       propertyPath: m_TagString
       value: Ground
