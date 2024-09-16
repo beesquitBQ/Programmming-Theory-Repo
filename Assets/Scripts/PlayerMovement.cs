@@ -94,4 +94,12 @@ public class PlayerMovement : MonoBehaviour
         controller.enabled = false;
     }
 
+    public void ResetPlayer()
+    {
+        isDead = false;
+        controller.enabled = true;
+        playerVelocity = Vector3.zero;
+        transform.position = new Vector3(20, 2, 0);
+    }
+
 }

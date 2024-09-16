@@ -1,79 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Creature : MonoBehaviour
+public abstract class Creature : HealthSystem
 {
-    [SerializeField] protected float maxHealth = 100;
-    protected float currentHealth;
+    protected Animator animator;
+    protected GameController gameController;
 
-    public UnityEvent<float> OnHealthChanged;
-    public UnityEvent OnDeath;
-
-    [SerializeField] private float invulnerabilityDuration = 0.3f;
-    private bool isInvulnerable = false;
-    [SerializeField] protected Animator deathAnimator;
-    protected bool isDead;
-
-    protected virtual void Start()
+    protected override void Start()
     {
-        currentHealth = maxHealth;
-        deathAnimator = GetComponent<Animator>();
+        base.Start();
+        animator = GetComponent<Animator>();
+        gameController = FindObjectOfType<GameController>();
     }
 
-    public virtual void TakeDamage(float amount)
-    {
-        if (!isInvulnerable)
-        {
-            currentHealth -= amount;
-            OnHealthChanged?.Invoke(currentHealth / maxHealth);
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                StartCoroutine(InvulnerabilityCoroutine());
-            }
-            Debug.Log($"{gameObject.name} took {amount} damage. Current health {currentHealth}");
-        }
-    }
-
-    protected IEnumerator InvulnerabilityCoroutine()
-    {
-        isInvulnerable = true;
-        yield return new WaitForSeconds(invulnerabilityDuration);
-        isInvulnerable = false;
-    }
-
-    public virtual void Die()
+    public override void Die()
     {
         if (!isDead)
         {
-            isDead = true;
-            OnDeath?.Invoke();
-            if (deathAnimator != null)
+            base.Die();
+            if (animator != null)
             {
-                deathAnimator.SetTrigger("Die");
+                animator.SetTrigger("Die");
             }
-            Debug.Log($"{gameObject.name} has been defeated!");
             StartCoroutine(DeathCoroutine());
         }
     }
 
     protected virtual IEnumerator DeathCoroutine()
     {
-        if (deathAnimator != null)   
+        if (animator != null)
         {
-            yield return new WaitForSeconds(deathAnimator.GetCurrentAnimatorStateInfo(0).length);
+            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         }
-        Destroy(gameObject);
+        else
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        OnDeathComplete();
     }
 
-    
-    public float GetHealthPercentage()
+    protected virtual void OnDeathComplete()
     {
-        return currentHealth/maxHealth;
+        Destroy(gameObject);
     }
 }

@@ -16,12 +16,7 @@ public class Hammer : Weapon
         if (enemy is Skeleton)
         {
             damage *= damageMultiplier;
-            enemy.TakeDamage(damage);
         }
-        else
-        {
-            enemy.TakeDamage(damage);
-        }
+        enemy.TakeDamage(damage, this);
     }
-
 }

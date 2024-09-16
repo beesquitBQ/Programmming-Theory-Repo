@@ -61,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441415610249090662}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9687516, z: -0, w: 0.24803318}
-  m_LocalPosition: {x: 1.5926441, y: 10.425459, z: 18.636524}
+  m_LocalRotation: {x: 0, y: -0.9687522, z: 0, w: 0.24803068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -83,11 +83,13 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: b19b172a6e956d34cb003b7befa2af53, type: 3}
   m_Controller: {fileID: 9100000, guid: f1623dee513e3f2438d625d426eaee34, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'metarig.010'\n\tFrom animation clip 'SkeletonMove'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -102,11 +104,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -134,16 +136,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   invulnerabilityDuration: 0.5
-  movementSpeed: 3
   turningSpeed: 90
   scoreValue: 100
+  attackCooldown: 1
+  detectionRadius: 10
+  wanderRadius: 5
+  wanderTimer: 4
   sightDistance: 20
-  fieldOfView: 85
+  fieldOfView: 360
   eyeHeight: 1.7
-  gunBarrel: {fileID: 2821198217324941327}
-  fireRate: 0.5
   arrowPrefab: {fileID: 8894646950402432258, guid: 23099d70533996d4491efa9ed07d65c9, type: 3}
   arrowSpeed: 20
+  shootPoint: {fileID: 2821198217324941327}
 --- !u!54 &1694223341410553640
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -864,7 +868,7 @@ Transform:
   m_GameObject: {fileID: 2428365573530853803}
   serializedVersion: 2
   m_LocalRotation: {x: 0.991125, y: 0.000000015846881, z: 0.0000001181506, w: 0.1329335}
-  m_LocalPosition: {x: 0.08983918, y: 0.06492111, z: 0.023781976}
+  m_LocalPosition: {x: 0.209, y: -0.086, z: 0.41}
   m_LocalScale: {x: 1, y: 1, z: 1.0000029}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1833,7 +1837,7 @@ Transform:
   m_GameObject: {fileID: 4615410367330187584}
   serializedVersion: 2
   m_LocalRotation: {x: 0.991125, y: -0.000000015846881, z: -0.0000001181506, w: 0.1329335}
-  m_LocalPosition: {x: -0.08983918, y: 0.06492111, z: 0.023781976}
+  m_LocalPosition: {x: -0.09, y: 0.063, z: 0.018}
   m_LocalScale: {x: 1, y: 1, z: 1.0000029}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2023,7 +2027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5204339094605408428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.086157344, y: -0.018656781, z: -0.016244877, w: 0.99597436}
+  m_LocalRotation: {x: 0.08615735, y: -0.018656781, z: -0.016244879, w: 0.99597436}
   m_LocalPosition: {x: 0.0000000166893, y: 0.020711148, z: -0.0000000923872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2816,14 +2820,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7479109988785083075}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.028554184, y: -0.00014421676, z: 0.00014204808, w: 0.99959224}
-  m_LocalPosition: {x: 0.0000000038033567, y: 0.5183996, z: -6.199184e-10}
+  m_LocalRotation: {x: 0.000000044703484, y: -0.000000013980367, z: 0.023383388, w: 0.99972665}
+  m_LocalPosition: {x: -0.066, y: 0.329, z: 0.06}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2593049132327199770}
   m_Father: {fileID: 6783148352273872711}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.68}
 --- !u!1 &7681865227240296633
 GameObject:
   m_ObjectHideFlags: 0

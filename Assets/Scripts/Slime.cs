@@ -1,88 +1,130 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using System.Collections;
 
 public class Slime : Enemy
 {
-    
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float jumpCooldown = 0.5f;
-    [SerializeField] private float upwardJumpFactor = 0.5f;
+    [SerializeField] private float jumpForce = 7f;
+    [SerializeField] private float forwardJumpMultiplier = 1.5f;
+    [SerializeField] private float jumpCooldown = 2f;
+    [SerializeField] private float jumpDistance = 4f;
+    [SerializeField] private float deathDelay = 1.5f;
     private float lastJumpTime = 0f;
-    private bool isGrounded = false;
-    private bool isJumping = false;
 
-    protected override void Start()
+    protected override void HandleMovement()
     {
-        maxHealth = 30f;
-        base.Start();
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        CheckGrounded();
-
-        if (isGrounded && Time.time - lastJumpTime >= jumpCooldown)
+        if (isDead) return;
+        if (player != null)
         {
-            if (CanJumpToPlayer())
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer <= detectionRadius)
             {
-                JumpToPlayer();
-                lastJumpTime = Time.time;
+                LookAtPlayer();
+                if (distanceToPlayer <= jumpDistance && CanJump())
+                {
+                    JumpToPlayer();
+                }
+                else if (agent != null && agent.enabled && agent.isOnNavMesh)
+                {
+                    agent.SetDestination(player.transform.position);
+                }
+            }
+            else
+            {
+                Wander();
             }
         }
-        if (isGrounded)
-        {
-            isJumping = false;
-        }
     }
 
-    private bool CanJumpToPlayer()
+    private bool CanJump()
     {
-        return true;
+        return Time.time - lastJumpTime >= jumpCooldown;
     }
 
     private void JumpToPlayer()
     {
-        Vector3 direectionToPlayer = (player.transform.position - transform.position).normalized;
-        Vector3 jumpDirection = new Vector3(direectionToPlayer.x, upwardJumpFactor, direectionToPlayer.z);
-        jumpDirection = jumpDirection.normalized;
-
-        enemyRb.AddForce(jumpDirection * jumpForce, ForceMode.Impulse);
-
-        isJumping = true;
+        if (agent == null || player == null || enemyRb == null) return;
+        isAttacking = true;
+        lastJumpTime = Time.time;
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        directionToPlayer.y = 0;
+        StartCoroutine(JumpCoroutine(directionToPlayer));
     }
 
-    public override bool IsAttacking()
+    private System.Collections.IEnumerator JumpCoroutine(Vector3 direction)
     {
-        return isJumping || !isGrounded;
-    }
-
-    private void CheckGrounded()
-    {
-        isGrounded = true;
-    }
-
-    protected override void OnCollisionEnter(Collision collision)
-    {
-        base.OnCollisionEnter(collision);
-
-        if (collision.gameObject.tag == "Ground")
+        if (agent != null) agent.enabled = false;
+        Vector3 jumpVector = Vector3.up * jumpForce + direction * (jumpForce * forwardJumpMultiplier);
+        enemyRb.AddForce(jumpVector, ForceMode.Impulse);
+        if (animator != null) animator.SetTrigger("Jump");
+        yield return new WaitForSeconds(0.5f);
+        if (agent != null && !isDead)
         {
-            isGrounded = true;
+            agent.enabled = true;
+            agent.Warp(transform.position);
+        }
+        isAttacking = false;
+        if (animator != null) animator.SetTrigger("Land");
+    }
+
+    protected override void UpdateAnimation()
+    {
+        base.UpdateAnimation();
+        if (animator != null)
+        {
+            animator.SetBool("IsJumping", isAttacking);
         }
     }
 
-    protected override void OnCollisionExit(Collision collision)
+    public override void Die()
     {
-        if (collision.gameObject.tag == "Ground")
+        if (!isDead)
         {
-            isGrounded = false;
+            isDead = true;
+            if (animator != null)
+            {
+                animator.SetTrigger("Die");
+            }
+            if (agent != null)
+            {
+                agent.enabled = false;
+            }
+            if (enemyRb != null)
+            {
+                enemyRb.isKinematic = true;
+            }
+            if (gameController != null)
+            {
+                int scoreToAdd = weapon != null
+                    ? Mathf.RoundToInt(scoreValue * weapon.scoreMultiplier)
+                    : scoreValue;
+                gameController.IncreaseScore(scoreToAdd);
+            }
+            StartCoroutine(DelayedDestruction());
         }
     }
 
-    public override void TakeDamage(float damage)
+    private System.Collections.IEnumerator DelayedDestruction()
     {
-        base.TakeDamage(damage, weapon);
+        yield return new WaitForSeconds(deathDelay);
+        Destroy(gameObject);
+    }
+    protected override void LookAtPlayer()
+    {
+        if (player != null)
+        {
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            directionToPlayer.y = 0; 
+            if (directionToPlayer != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turningSpeed * Time.deltaTime);
+            }
+        }
+    }
+
+    protected override void Wander()
+    {
+        base.Wander();
     }
 }

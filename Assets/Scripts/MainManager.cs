@@ -14,7 +14,6 @@ public class MainManager : MonoBehaviour
     public string playerName = "";
     public List<PlayerScore> leaderList = new List<PlayerScore>();
     private const int MaxLeaderListSize = 10;
-
     private void Awake()
     {
         if (Instance == null)
@@ -48,9 +47,9 @@ public class MainManager : MonoBehaviour
         public List<PlayerScore> leaderList;
     }
 
-    public void AddScore(string playername, int score)
+    public void AddScore(string playerName, int score)
     {
-        var existingScore = leaderList.FirstOrDefault(p => p.playerName == playername);
+        var existingScore = leaderList.FirstOrDefault(p => p.playerName == playerName);
         if (existingScore != null)
         {
             if (score > existingScore.score)
@@ -60,7 +59,7 @@ public class MainManager : MonoBehaviour
         }
         else
         {
-            leaderList.Add(new PlayerScore(playername, score));
+            leaderList.Add(new PlayerScore(playerName, score));
         }
         leaderList = leaderList.OrderByDescending(p => p.score).Take(MaxLeaderListSize).ToList();
         SaveLeaderList();
@@ -101,4 +100,3 @@ public class MainManager : MonoBehaviour
         SaveLeaderList();
     }
 }
-

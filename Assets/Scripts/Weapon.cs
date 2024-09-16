@@ -11,7 +11,6 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float attackDuration = 0.5f;
     public float damageMultiplier = 1.5f;
     public float scoreMultiplier = 1.25f;
-
     protected PlayerStats playerStats;
     protected bool isBlocking = false;
     protected bool isAttacking = false;
@@ -42,7 +41,7 @@ public abstract class Weapon : MonoBehaviour
             StartCoroutine(PerformAttack());
         }
     }
-    
+
     protected virtual IEnumerator PerformAttack()
     {
         isAttacking = true;
@@ -53,10 +52,7 @@ public abstract class Weapon : MonoBehaviour
         isAttacking = false;
     }
 
-    public bool IsAttacking()
-    {
-    return isAttacking; 
-    }
+    public bool IsAttacking() => isAttacking;
 
     private void OnDisable()
     {
@@ -94,11 +90,10 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void InitializeCollider()
     {
-        if(weaponCollider != null)
+        if (weaponCollider != null)
         {
             weaponCollider.enabled = false;
             weaponCollider.isTrigger = true;
         }
     }
-
 }

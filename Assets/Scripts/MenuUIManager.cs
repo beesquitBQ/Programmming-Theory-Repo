@@ -34,7 +34,6 @@ public class MenuUIManager : MonoBehaviour
         if (MainManager.Instance != null && playerNameInput != null)
         {
             MainManager.Instance.playerName = playerNameInput.text;
-            MainManager.Instance.SaveLeaderList();
         }
     }
 

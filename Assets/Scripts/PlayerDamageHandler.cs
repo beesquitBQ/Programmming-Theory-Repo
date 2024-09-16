@@ -11,7 +11,7 @@ public class PlayerDamageHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
     }
 
-    private void OnCollisionStay (Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {

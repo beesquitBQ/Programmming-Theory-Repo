@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    public Creature creature;
+    private const float PLAYER_DAMAGE = 9999f;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        creature.Die();
-
-        if (other.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(PLAYER_DAMAGE);
+            }
+        }
+        else
+        {
+            Creature creature = collision.gameObject.GetComponent<Creature>();
+
+            if (creature != null)
+            {
+                creature.Die();
+            }
+            else if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
