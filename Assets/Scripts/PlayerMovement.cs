@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // ENCAPSULATION
     [SerializeField] private float playerMovementSpeed = 5f;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         SwitchEquippedWeapon();
     }
 
+    // ABSTRACTION
     void ProcessMove()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    // ABSTRACTION
     void ProcessJump()
     {
         if (isGrounded && Input.GetButtonDown("Jump"))
@@ -73,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void SwitchEquippedWeapon()
     {
         if (Input.GetKeyDown(KeyCode.R) && currentWeapon != null && !currentWeapon.IsAttacking())
@@ -87,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void Die()
     {
         isDead = true;
@@ -94,12 +99,12 @@ public class PlayerMovement : MonoBehaviour
         controller.enabled = false;
     }
 
-    public void ResetPlayer()
-    {
-        isDead = false;
-        controller.enabled = true;
-        playerVelocity = Vector3.zero;
-        transform.position = new Vector3(20, 2, 0);
-    }
+    //public void ResetPlayer()
+    //{
+    //    isDead = false;
+    //    controller.enabled = true;
+    //    playerVelocity = Vector3.zero;
+    //    transform.position = new Vector3(20, 2, 0);
+    //}
 
 }

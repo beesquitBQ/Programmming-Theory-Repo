@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
+    // ENCAPSULATION
     [SerializeField] protected float maxHealth = 100;
     protected float currentHealth;
     public UnityEvent<float> OnHealthChanged;
@@ -18,6 +19,7 @@ public class HealthSystem : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    // POLYMORPHISM
     public virtual void TakeDamage(float amount)
     {
         if (!isInvulnerable && !isDead)
@@ -36,6 +38,7 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     protected virtual IEnumerator InvulnerabilityCoroutine()
     {
         isInvulnerable = true;
@@ -43,6 +46,7 @@ public class HealthSystem : MonoBehaviour
         isInvulnerable = false;
     }
 
+    // POLYMORPHISM
     public virtual void Die()
     {
         if (!isDead)
@@ -53,15 +57,18 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    public float GetHealthPercentage() => currentHealth / maxHealth;
+    //// ENCAPSULATION
+    //public float GetHealthPercentage() => currentHealth / maxHealth;
 
-    public virtual void ResetHealth()
-    {
-        currentHealth = maxHealth;
-        isDead = false;
-        OnHealthChanged?.Invoke(currentHealth / maxHealth);
-    }
+    //// POLYMORPHISM
+    //public virtual void ResetHealth()
+    //{
+    //    currentHealth = maxHealth;
+    //    isDead = false;
+    //    OnHealthChanged?.Invoke(currentHealth / maxHealth);
+    //}
 
+    // POLYMORPHISM
     public virtual void Heal(float amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);

@@ -2,13 +2,16 @@ using UnityEngine;
 using System;
 using System.Collections;
 
+// INHERITANCE
 public class PlayerStats : Creature
 {
+    // POLYMORPHISM
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
     }
 
+    // POLYMORPHISM
     public override void Die()
     {
         base.Die();
@@ -18,6 +21,7 @@ public class PlayerStats : Creature
         }
     }
 
+    // POLYMORPHISM
     protected override void OnDeathComplete()
     {
         PlayerMovement playerMovement = GetComponent<PlayerMovement>();

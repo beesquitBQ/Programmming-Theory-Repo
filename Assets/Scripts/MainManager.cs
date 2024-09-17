@@ -10,6 +10,7 @@ using System.Linq;
 
 public class MainManager : MonoBehaviour
 {
+    // ENCAPSULATION
     public static MainManager Instance { get; private set; }
     public string playerName = "";
     public List<PlayerScore> leaderList = new List<PlayerScore>();
@@ -47,6 +48,7 @@ public class MainManager : MonoBehaviour
         public List<PlayerScore> leaderList;
     }
 
+    // ABSTRACTION
     public void AddScore(string playerName, int score)
     {
         var existingScore = leaderList.FirstOrDefault(p => p.playerName == playerName);
@@ -65,6 +67,7 @@ public class MainManager : MonoBehaviour
         SaveLeaderList();
     }
 
+    // ABSTRACTION
     public void SaveLeaderList()
     {
         SaveData data = new SaveData
@@ -75,6 +78,7 @@ public class MainManager : MonoBehaviour
         File.WriteAllText(GetSaveFilePath(), json);
     }
 
+    // ABSTRACTION
     public void LoadLeaderList()
     {
         string path = GetSaveFilePath();

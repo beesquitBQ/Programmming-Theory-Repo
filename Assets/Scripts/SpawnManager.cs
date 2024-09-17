@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    // ENCAPSULATION
     public GameObject[] enemyPrefabs;
     private float spawnRange = 20.0f;
     public int enemyCount;
@@ -27,6 +28,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     private Vector3 GenerateSpawnPosition()
     {
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
@@ -35,6 +37,7 @@ public class SpawnManager : MonoBehaviour
         return randomPos;
     }
 
+    // ABSTRACTION
     void SpawnEnemyWave(int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)

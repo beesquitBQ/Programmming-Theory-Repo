@@ -5,12 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// ENCAPSULATION
 public class GameController : MonoBehaviour
 {
     public TMP_Text scoreText;
     public GameObject gameOverPanel;
     public Button restartButton;
     public Button menuButton;
+    public TMP_Text healthText;
+    private PlayerStats playerStats;
 
     private int currentScore = 0;
     private bool isGameOver = false;
@@ -19,15 +22,23 @@ public class GameController : MonoBehaviour
     {
         InitializeUI();
         StartNewGame();
+        playerStats = FindObjectOfType<PlayerStats>();  // Находим PlayerStats в сцене
+        if (playerStats != null)
+        {
+            playerStats.OnHealthChanged.AddListener(UpdateHealthText);  // Подписываемся на событие изменения здоровья
+        }
     }
 
+    // ABSTRACTION
     private void InitializeUI()
     {
         if (restartButton != null) restartButton.onClick.AddListener(RestartGame);
         if (menuButton != null) menuButton.onClick.AddListener(ReturnToMenu);
         UpdateScoreText();
+        UpdateHealthText(1f);
     }
 
+    // ABSTRACTION
     public void StartNewGame()
     {
         currentScore = 0;
@@ -36,6 +47,7 @@ public class GameController : MonoBehaviour
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
     }
 
+    // ABSTRACTION
     public void IncreaseScore(int points)
     {
         if (!isGameOver)
@@ -51,6 +63,14 @@ public class GameController : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = $"{MainManager.Instance.playerName} : {currentScore}";
+        }
+    }
+
+    private void UpdateHealthText(float healthPercentage)
+    {
+        if (healthText != null)
+        {
+            healthText.text = $"Health: {Mathf.RoundToInt(healthPercentage * 100)}%";
         }
     }
 

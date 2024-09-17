@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// INHERITANCE
 public abstract class Creature : HealthSystem
 {
     protected Animator animator;
     protected GameController gameController;
 
+    // POLYMORPHISM
     protected override void Start()
     {
         base.Start();
@@ -16,6 +18,7 @@ public abstract class Creature : HealthSystem
         gameController = FindObjectOfType<GameController>();
     }
 
+    // POLYMORPHISM
     public override void Die()
     {
         if (!isDead)
@@ -29,6 +32,7 @@ public abstract class Creature : HealthSystem
         }
     }
 
+    // ABSTRACTION
     protected virtual IEnumerator DeathCoroutine()
     {
         if (animator != null)
@@ -43,6 +47,7 @@ public abstract class Creature : HealthSystem
         OnDeathComplete();
     }
 
+    // ABSTRACTION
     protected virtual void OnDeathComplete()
     {
         Destroy(gameObject);

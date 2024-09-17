@@ -2,31 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadZone : MonoBehaviour
+public class DeathZone : MonoBehaviour
 {
-    private const float PLAYER_DAMAGE = 9999f;
+    [SerializeField] private float instantKillDamage = 9999f;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
-                playerStats.TakeDamage(PLAYER_DAMAGE);
-            }
-        }
-        else
-        {
-            Creature creature = collision.gameObject.GetComponent<Creature>();
-
-            if (creature != null)
-            {
-                creature.Die();
-            }
-            else if (collision.gameObject.CompareTag("Enemy"))
-            {
-                Destroy(collision.gameObject);
+                playerStats.TakeDamage(instantKillDamage);
             }
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    // ENCAPSULATION
     public Transform player;
     public Vector3 offset = new Vector3(0f, 1.6f, 0f);
     public float smothSpeed = 5f;
@@ -23,6 +24,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void LateUpdate()
     {
         if (player == null) return;
@@ -40,6 +42,7 @@ public class CameraController : MonoBehaviour
         player.Rotate(Vector3.up * mouseX);
     }
 
+    // ABSTRACTION
     public void ResetCamera()
     {
         verticalRotation = 0f;

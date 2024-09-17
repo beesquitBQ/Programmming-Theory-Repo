@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public abstract class Enemy : Creature
 {
+    // ENCAPSULATION
     [SerializeField] protected float turningSpeed = 120.0f;
     [SerializeField] protected int scoreValue = 100;
     [SerializeField] protected float attackCooldown = 1f;
@@ -23,6 +24,7 @@ public abstract class Enemy : Creature
     protected float lastAttackTime = 0f;
     protected float wanderTime = 0f;
 
+    // POLYMORPHISM
     protected override void Start()
     {
         base.Start();
@@ -54,6 +56,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ABSTRACTION
     protected virtual void Update()
     {
         if (!isDead)
@@ -63,6 +66,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ABSTRACTION
     protected virtual void HandleMovement()
     {
         if (player != null)
@@ -89,6 +93,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ABSTRACTION
     protected virtual void LookAtPlayer()
     {
         if (player != null)
@@ -103,6 +108,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ABSTRACTION
     protected virtual void Wander()
     {
         wanderTime -= Time.deltaTime;
@@ -124,11 +130,13 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ENCAPSULATION
     protected virtual bool CanAttack()
     {
         return Time.time - lastAttackTime >= attackCooldown;
     }
 
+    // ABSTRACTION
     protected virtual void Attack()
     {
         isAttacking = true;
@@ -139,6 +147,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // POLYMORPHISM
     public virtual void TakeDamage(float damage, Weapon attackingWeapon)
     {
         float damageToApply = damage;
@@ -154,6 +163,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // POLYMORPHISM
     public override void Die()
     {
         if (!isDead)
@@ -178,6 +188,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ABSTRACTION
     protected virtual void UpdateAnimation()
     {
         if (animator != null)
@@ -187,6 +198,7 @@ public abstract class Enemy : Creature
         }
     }
 
+    // ABSTRACTION
     public virtual void DealDamageToPlayer(PlayerStats playerStats)
     {
         if (playerStats != null && isAttacking)
@@ -195,19 +207,13 @@ public abstract class Enemy : Creature
         }
     }
 
-    protected virtual void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            DealDamageToPlayer(playerStats);
-        }
-    }
-
+    // ENCAPSULATION
     public virtual bool IsAttacking()
     {
         return isAttacking;
     }
 
+    // ABSTRACTION
     protected virtual IEnumerator DeathCoroutine()
     {
         yield return new WaitForSeconds(2f);

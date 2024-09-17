@@ -3,8 +3,10 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ABSTRACTION
 public abstract class Weapon : MonoBehaviour
 {
+    // ENCAPSULATION
     [SerializeField] protected float maxDamage = 8.0f;
     [SerializeField] protected float minDamage = 4.0f;
     [SerializeField] protected float reduceDamageMultiplier = 0.5f;
@@ -34,6 +36,7 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     protected virtual void Attack()
     {
         if (!isAttacking)
@@ -77,6 +80,7 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     protected abstract void ApplyDamageToEnemy(Enemy enemy, float damage);
 
     protected virtual void ApplyDamage(float damageAmount)

@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
+// INHERITANCE
 public class Slime : Enemy
 {
+    // ENCAPSULATION
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private float forwardJumpMultiplier = 1.5f;
     [SerializeField] private float jumpCooldown = 2f;
@@ -11,6 +13,7 @@ public class Slime : Enemy
     [SerializeField] private float deathDelay = 1.5f;
     private float lastJumpTime = 0f;
 
+    // POLYMORPHISM
     protected override void HandleMovement()
     {
         if (isDead) return;
@@ -36,11 +39,13 @@ public class Slime : Enemy
         }
     }
 
+    // ENCAPSULATION
     private bool CanJump()
     {
         return Time.time - lastJumpTime >= jumpCooldown;
     }
 
+    // ABSTRACTION
     private void JumpToPlayer()
     {
         if (agent == null || player == null || enemyRb == null) return;
@@ -51,6 +56,7 @@ public class Slime : Enemy
         StartCoroutine(JumpCoroutine(directionToPlayer));
     }
 
+    // ABSTRACTION
     private System.Collections.IEnumerator JumpCoroutine(Vector3 direction)
     {
         if (agent != null) agent.enabled = false;
@@ -67,6 +73,7 @@ public class Slime : Enemy
         if (animator != null) animator.SetTrigger("Land");
     }
 
+    // POLYMORPHISM
     protected override void UpdateAnimation()
     {
         base.UpdateAnimation();
@@ -76,6 +83,7 @@ public class Slime : Enemy
         }
     }
 
+    // POLYMORPHISM
     public override void Die()
     {
         if (!isDead)
@@ -100,15 +108,18 @@ public class Slime : Enemy
                     : scoreValue;
                 gameController.IncreaseScore(scoreToAdd);
             }
-            StartCoroutine(DelayedDestruction());
+            StartCoroutine(DeathCoroutine());
         }
     }
 
-    private System.Collections.IEnumerator DelayedDestruction()
+    // POLYMORPHISM
+    protected override IEnumerator DeathCoroutine()
     {
-        yield return new WaitForSeconds(deathDelay);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
+
+    // POLYMORPHISM
     protected override void LookAtPlayer()
     {
         if (player != null)
@@ -123,6 +134,16 @@ public class Slime : Enemy
         }
     }
 
+    // POLYMORPHISM
+    protected virtual void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DealDamageToPlayer(playerStats);
+        }
+    }
+
+    // POLYMORPHISM
     protected override void Wander()
     {
         base.Wander();

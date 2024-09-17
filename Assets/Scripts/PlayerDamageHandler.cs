@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDamageHandler : MonoBehaviour
 {
+    // ENCAPSULATION
     private PlayerStats playerStats;
 
     private void Start()
@@ -11,6 +12,7 @@ public class PlayerDamageHandler : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
     }
 
+    // ABSTRACTION
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

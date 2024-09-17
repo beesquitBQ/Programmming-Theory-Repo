@@ -10,6 +10,7 @@ using System.Linq;
 [DefaultExecutionOrder(0)]
 public class MenuUIManager : MonoBehaviour
 {
+    // ENCAPSULATION
     public TMP_InputField playerNameInput;
     public GameObject scoresPanel;
     public TMP_Text leaderboardText;
@@ -29,6 +30,7 @@ public class MenuUIManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void SetPlayerName()
     {
         if (MainManager.Instance != null && playerNameInput != null)
@@ -54,6 +56,7 @@ public class MenuUIManager : MonoBehaviour
         scoresPanel.SetActive(false);
     }
 
+    // ABSTRACTION
     public void UpdateLeaderboardDisplay()
     {
         if (leaderboardText != null)
