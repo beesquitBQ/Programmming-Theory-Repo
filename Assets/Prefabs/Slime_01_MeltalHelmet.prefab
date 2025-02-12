@@ -331,19 +331,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fc64829d458fa46b085043b25b1818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 45
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  invulnerabilityDuration: 0.5
+  invulnerabilityDuration: 1
   turningSpeed: 90
   scoreValue: 100
   attackCooldown: 2
   detectionRadius: 20
-  wanderRadius: 5
+  wanderRadius: 10
   wanderTimer: 4
   jumpForce: 5
   forwardJumpMultiplier: 5
@@ -431,7 +431,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 3.5
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120

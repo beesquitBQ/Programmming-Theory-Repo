@@ -169,14 +169,29 @@ public abstract class Enemy : Creature
         if (!isDead)
         {
             isDead = true;
+
+            // Отключаем NavMeshAgent
+            if (agent != null)
+            {
+                agent.isStopped = true;
+                agent.enabled = false; // Полностью отключаем NavMeshAgent
+            }
+
+            // Включаем физику через Rigidbody
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false; // Разрешаем физическое взаимодействие
+                rb.useGravity = true;   // Включаем гравитацию
+            }
+
+            // Запускаем анимацию смерти
             if (animator != null)
             {
                 animator.SetTrigger("Die");
             }
-            if (agent != null)
-            {
-                agent.isStopped = true;
-            }
+
+            // Увеличиваем счет игрока
             if (gameController != null)
             {
                 int scoreToAdd = weapon != null
@@ -184,6 +199,8 @@ public abstract class Enemy : Creature
                     : scoreValue;
                 gameController.IncreaseScore(scoreToAdd);
             }
+
+            // Запускаем корутину для уничтожения объекта
             StartCoroutine(DeathCoroutine());
         }
     }
@@ -216,7 +233,7 @@ public abstract class Enemy : Creature
     // ABSTRACTION
     protected virtual IEnumerator DeathCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 }

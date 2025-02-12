@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// ENCAPSULATION
 public class GameController : MonoBehaviour
 {
     public TMP_Text scoreText;
@@ -14,9 +13,15 @@ public class GameController : MonoBehaviour
     public Button menuButton;
     public TMP_Text healthText;
     private PlayerStats playerStats;
-
     private int currentScore = 0;
     private bool isGameOver = false;
+    [SerializeField] private GameObject pauseMenuPanel; // Ссылка на панель меню паузы
+    private bool isGamePaused = false;
+
+    private void Awake()
+    {
+        isGamePaused = false;
+    }
 
     private void Start()
     {
@@ -26,6 +31,17 @@ public class GameController : MonoBehaviour
         if (playerStats != null)
         {
             playerStats.OnHealthChanged.AddListener(UpdateHealthText);  // Подписываемся на событие изменения здоровья
+        }
+        HideCursor();
+        isGamePaused = false;
+    }
+
+    private void Update()
+    {
+        // Проверяем нажатие клавиши Esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
         }
     }
 
@@ -41,10 +57,14 @@ public class GameController : MonoBehaviour
     // ABSTRACTION
     public void StartNewGame()
     {
+        // Сбрасываем время при старте новой игры
+        Time.timeScale = 1f;
+
         currentScore = 0;
         isGameOver = false;
         UpdateScoreText();
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        isGamePaused = false;
     }
 
     // ABSTRACTION
@@ -76,18 +96,89 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        isGamePaused = true; // Игра останавливается
         isGameOver = true;
-        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true); // Показываем панель "Game Over"
+        }
+
+        ShowCursor(); // Показываем курсор
+        Time.timeScale = 0f; // Останавливаем время
+
         MainManager.Instance.AddScore(MainManager.Instance.playerName, currentScore);
     }
 
     public void RestartGame()
     {
+        // Сбрасываем время перед перезапуском игры
+        Time.timeScale = 1f;
+
+        isGamePaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ReturnToMenu()
     {
+        // Сбрасываем время перед возвратом в главное меню
+        Time.timeScale = 1f;
+
+        isGamePaused = false;
         SceneManager.LoadScene(0);
+    }
+
+    // Метод для переключения паузы
+    public void TogglePause()
+    {
+        if (isGamePaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+    }
+
+    // Метод для возобновления игры
+    public void ResumeGame()
+    {
+        pauseMenuPanel.SetActive(false); // Скрываем меню паузы
+        Time.timeScale = 1f; // Возобновляем время
+        HideCursor(); // Скрываем курсор
+        isGamePaused = false;
+    }
+
+    // Метод для паузы игры
+    private void PauseGame()
+    {
+        pauseMenuPanel.SetActive(true); // Показываем меню паузы
+        Time.timeScale = 0f; // Останавливаем время
+        ShowCursor(); // Показываем курсор
+        isGamePaused = true;
+    }
+
+    // Метод для скрытия курсора
+    private void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    // Метод для показа курсора
+    private void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    // Метод для выхода из игры
+    public void QuitGame()
+    {
+        Application.Quit(); // Закрывает приложение (работает только в билде, а не в редакторе)
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Для тестирования в редакторе
+#endif
     }
 }

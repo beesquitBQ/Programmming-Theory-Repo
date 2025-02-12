@@ -7,7 +7,6 @@ using UnityEngine.AI;
 // INHERITANCE
 public class Skeleton : Enemy
 {
-    // ENCAPSULATION
     [SerializeField] private float sightDistance = 20f;
     [SerializeField] private float fieldOfView = 85f;
     [SerializeField] private float eyeHeight;
@@ -21,7 +20,6 @@ public class Skeleton : Enemy
 
     private bool isPerformingAttack = false;
 
-    // POLYMORPHISM
     protected override void Start()
     {
         base.Start();
@@ -29,7 +27,6 @@ public class Skeleton : Enemy
         wanderTime = wanderTimer;
     }
 
-    // POLYMORPHISM
     protected override void Update()
     {
         if (!isDead)
@@ -38,47 +35,6 @@ public class Skeleton : Enemy
             UpdateAnimation();
         }
     }
-
-    // POLYMORPHISM
-    protected override void HandleMovement()
-    {
-        if (player != null && !isDead && !isPerformingAttack)
-        {
-            if (CanSeePlayer())
-            {
-                LookAtPlayer();
-                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-                if (CanAttack() && distanceToPlayer <= detectionRadius)
-                {
-                    StartCoroutine(PerformAttack());
-                }
-                else if (distanceToPlayer > attackCooldown)
-                {
-                    if (agent.enabled && agent.isOnNavMesh)
-                    {
-                        agent.SetDestination(player.transform.position);
-                    }
-                }
-                else
-                {
-                    agent.ResetPath();
-                }
-            }
-            else
-            {
-                Wander();
-            }
-        }
-    }
-
-    // POLYMORPHISM
-    protected override void Wander()
-    {
-        base.Wander();
-    }
-
-    // ENCAPSULATION
     private bool CanSeePlayer()
     {
         if (player != null)
@@ -103,27 +59,67 @@ public class Skeleton : Enemy
         }
         return false;
     }
+    protected override void HandleMovement()
+    {
+        if (player != null && !isDead && !isPerformingAttack)
+        {
+            if (CanSeePlayer())
+            {
+                LookAtPlayer();
+                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+                if (CanAttack() && distanceToPlayer <= detectionRadius)
+                {
+                    StartCoroutine(PerformAttack());
+                }
+                else if (distanceToPlayer > attackCooldown)
+                {
+                    if (agent.enabled && agent.isOnNavMesh)
+                    {
+                        agent.SetDestination(player.transform.position);
+                    }
+                }
+                else
+                {
+                    agent.ResetPath();
+                }
+            }
+            else
+            {
+                Wander();
+            }
+        }
+    }
 
-    // ABSTRACTION
     private IEnumerator PerformAttack()
     {
         isPerformingAttack = true;
         agent.ResetPath();
 
+        // Запускаем анимацию атаки
         if (animator != null)
         {
             animator.SetTrigger(AttackTrigger);
         }
 
-        yield return new WaitForSeconds(1f); 
+        // Ждем завершения атаки (время анимации)
+        yield return new WaitForSeconds(attackCooldown);
 
-        ShootArrow();
-
+        // Завершаем атаку
         isPerformingAttack = false;
         lastAttackTime = Time.time;
+
+        // Если игрок все еще в зоне поражения, повторяем атаку
+        if (CanSeePlayer() && CanAttack())
+        {
+            StartCoroutine(PerformAttack());
+        }
     }
 
-    // ABSTRACTION
+    public void OnArrowLaunchEvent()
+    {
+        ShootArrow();
+    }
+
     private void ShootArrow()
     {
         if (arrowPrefab != null && shootPoint != null)
@@ -137,7 +133,6 @@ public class Skeleton : Enemy
         }
     }
 
-    // POLYMORPHISM
     protected override void UpdateAnimation()
     {
         if (animator != null)
@@ -146,25 +141,30 @@ public class Skeleton : Enemy
         }
     }
 
-    // POLYMORPHISM
     public override void Die()
     {
         if (!isDead)
         {
             base.Die();
-            if (animator != null)
-            {
-                animator.SetTrigger(DieTrigger);
-            }
             if (agent != null)
             {
                 agent.isStopped = true;
+                agent.enabled = false;
+            }
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+                rb.useGravity = true;
+            }
+            if (animator != null)
+            {
+                animator.SetTrigger(DieTrigger);
             }
             StartCoroutine(DeathCoroutine());
         }
     }
 
-    // POLYMORPHISM
     protected override IEnumerator DeathCoroutine()
     {
         yield return new WaitForSeconds(2f);

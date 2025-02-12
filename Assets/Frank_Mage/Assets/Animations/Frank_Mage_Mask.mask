@@ -3,260 +3,189 @@
 --- !u!319 &31900000
 AvatarMask:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Frank_Mage_Mask
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: Cloak
+  - m_Path: Body.010
     m_Weight: 1
-  - m_Path: Frank_Mesh_Unity
+  - m_Path: metarig.010
     m_Weight: 1
-  - m_Path: FX_Laser
+  - m_Path: metarig.010/spine
     m_Weight: 1
-  - m_Path: FX_Projectile_Mesh
+  - m_Path: metarig.010/spine/pelvis.L
     m_Weight: 1
-  - m_Path: FX_Projectile_Mesh1
+  - m_Path: metarig.010/spine/pelvis.L/pelvis.L_end
     m_Weight: 1
-  - m_Path: FX_Ring_Mesh
+  - m_Path: metarig.010/spine/pelvis.R
     m_Weight: 1
-  - m_Path: root
+  - m_Path: metarig.010/spine/pelvis.R/pelvis.R_end
     m_Weight: 1
-  - m_Path: root/ik_foot_root
+  - m_Path: metarig.010/spine/spine.001
     m_Weight: 1
-  - m_Path: root/ik_foot_root/ik_foot_l
+  - m_Path: metarig.010/spine/spine.001/spine.002
     m_Weight: 1
-  - m_Path: root/ik_foot_root/ik_foot_r
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003
     m_Weight: 1
-  - m_Path: root/ik_hand_root
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/breast.L
     m_Weight: 1
-  - m_Path: root/ik_hand_root/ik_hand_gun
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/breast.L/breast.L_end
     m_Weight: 1
-  - m_Path: root/ik_hand_root/ik_hand_gun/ik_hand_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/breast.R
     m_Weight: 1
-  - m_Path: root/ik_hand_root/ik_hand_gun/ik_hand_r
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/breast.R/breast.R_end
     m_Weight: 1
-  - m_Path: root/pelvis
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone018
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone019
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone020
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone021
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/f_index.01.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone022
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/f_index.01.L/f_index.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone023
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/f_index.01.L/f_index.02.L/f_index.03.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone024
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/f_index.01.L/f_index.02.L/f_index.03.L/f_index.03.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone025
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/thumb.01.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone026
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/thumb.01.L/thumb.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone027
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/thumb.01.L/thumb.02.L/thumb.03.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone028
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.01.L/thumb.01.L/thumb.02.L/thumb.03.L/thumb.03.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone029
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone030
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.02.L/f_middle.01.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone031
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.02.L/f_middle.01.L/f_middle.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone032
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.02.L/f_middle.01.L/f_middle.02.L/f_middle.03.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone033
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.02.L/f_middle.01.L/f_middle.02.L/f_middle.03.L/f_middle.03.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone034
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.03.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone035
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.03.L/f_ring.01.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone036
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.03.L/f_ring.01.L/f_ring.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone037
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.03.L/f_ring.01.L/f_ring.02.L/f_ring.03.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone038
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.03.L/f_ring.01.L/f_ring.02.L/f_ring.03.L/f_ring.03.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone039
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.04.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone040
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.04.L/f_pinky.01.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone041
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.04.L/f_pinky.01.L/f_pinky.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone042
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.04.L/f_pinky.01.L/f_pinky.02.L/f_pinky.03.L
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Laser_Root/Bone043
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L/palm.04.L/f_pinky.01.L/f_pinky.02.L/f_pinky.03.L/f_pinky.03.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Projectile
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Projectile/FX_Projectile1
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R
     m_Weight: 1
-  - m_Path: root/pelvis/FX_Ring
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R
     m_Weight: 1
-  - m_Path: root/pelvis/Main_Camera
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/f_index.01.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/f_index.01.R/f_index.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone001
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/f_index.01.R/f_index.02.R/f_index.03.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone001/Bone002
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/f_index.01.R/f_index.02.R/f_index.03.R/f_index.03.R_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone001/Bone002/Bone003
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/thumb.01.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone001/Bone002/Bone003/Bone004
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/thumb.01.R/thumb.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone001/Bone002/Bone003/Bone004/Bone005
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/thumb.01.R/thumb.02.R/thumb.03.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone001/Bone002/Bone003/Bone004/Bone005/Bone006
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.01.R/thumb.01.R/thumb.02.R/thumb.03.R/thumb.03.R_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone007
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone007/Bone008
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.02.R/f_middle.01.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone007/Bone008/Bone009
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.02.R/f_middle.01.R/f_middle.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone007/Bone008/Bone009/Bone010
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.02.R/f_middle.01.R/f_middle.02.R/f_middle.03.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone007/Bone008/Bone009/Bone010/Bone011
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.02.R/f_middle.01.R/f_middle.02.R/f_middle.03.R/f_middle.03.R_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/Bone007/Bone008/Bone009/Bone010/Bone011/Bone012
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.03.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.03.R/f_ring.01.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.03.R/f_ring.01.R/f_ring.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.03.R/f_ring.01.R/f_ring.02.R/f_ring.03.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.03.R/f_ring.01.R/f_ring.02.R/f_ring.03.R/f_ring.03.R_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.04.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l/index_02_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.04.R/f_pinky.01.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l/index_02_l/index_03_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.04.R/f_pinky.01.R/f_pinky.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/Magic_Ball
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.04.R/f_pinky.01.R/f_pinky.02.R/f_pinky.03.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R/palm.04.R/f_pinky.01.R/f_pinky.02.R/f_pinky.03.R/f_pinky.03.R_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l/middle_02_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/spine.004
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l/middle_02_l/middle_03_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/spine.004/spine.005
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l/pinky_02_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006/face
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l/pinky_02_l/pinky_03_l
+  - m_Path: metarig.010/spine/spine.001/spine.002/spine.003/spine.004/spine.005/spine.006/face/face_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l
+  - m_Path: metarig.010/spine/thigh.L
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l/ring_02_l
+  - m_Path: metarig.010/spine/thigh.L/shin.L
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l/ring_02_l/ring_03_l
+  - m_Path: metarig.010/spine/thigh.L/shin.L/foot.L
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l
+  - m_Path: metarig.010/spine/thigh.L/shin.L/foot.L/heel.02.L
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l/thumb_02_l
+  - m_Path: metarig.010/spine/thigh.L/shin.L/foot.L/heel.02.L/heel.02.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l/thumb_02_l/thumb_03_l
+  - m_Path: metarig.010/spine/thigh.L/shin.L/foot.L/toe.L
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/lowerarm_twist_01_l
+  - m_Path: metarig.010/spine/thigh.L/shin.L/foot.L/toe.L/toe.L_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/upperarm_twist_01_l
+  - m_Path: metarig.010/spine/thigh.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r
+  - m_Path: metarig.010/spine/thigh.R/shin.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r
+  - m_Path: metarig.010/spine/thigh.R/shin.R/foot.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r
+  - m_Path: metarig.010/spine/thigh.R/shin.R/foot.R/heel.02.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r
+  - m_Path: metarig.010/spine/thigh.R/shin.R/foot.R/heel.02.R/heel.02.R_end
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r
+  - m_Path: metarig.010/spine/thigh.R/shin.R/foot.R/toe.R
     m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r/index_02_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r/index_02_r/index_03_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r/middle_02_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r/middle_02_r/middle_03_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r/pinky_02_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r/pinky_02_r/pinky_03_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/R_Hand_Weapon
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r/ring_02_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r/ring_02_r/ring_03_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Staff_Root
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Staff_Root/Bone014
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Staff_Root/Bone014/Bone015
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Staff_Root/Bone014/Bone016
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/Staff_Root/Bone017
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r/thumb_02_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r/thumb_02_r/thumb_03_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/lowerarm_twist_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/upperarm_twist_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/neck_01
-    m_Weight: 1
-  - m_Path: root/pelvis/spine_01/spine_02/spine_03/neck_01/head
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_l
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_l/calf_l
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_l/calf_l/calf_twist_01_l
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_l/calf_l/foot_l
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_l/calf_l/foot_l/ball_l
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_l/thigh_twist_01_l
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_r
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_r/calf_r
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_r/calf_r/calf_twist_01_r
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_r/calf_r/foot_r
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_r/calf_r/foot_r/ball_r
-    m_Weight: 1
-  - m_Path: root/pelvis/thigh_r/thigh_twist_01_r
-    m_Weight: 1
-  - m_Path: weapon001
+  - m_Path: metarig.010/spine/thigh.R/shin.R/foot.R/toe.R/toe.R_end
     m_Weight: 1
